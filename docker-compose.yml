@@ -27,7 +27,7 @@ services:
       - 3000:3000
     volumes:
       - ./tests/files/grafana/dashboards:/var/lib/grafana/dashboards
-      - ./tests/files/grafana/provisioning:/etc/grafana/provisioning/datasources
+      - ./tests/files/grafana/provisioning:/etc/grafana/provisioning
     depends_on:
       - influxdb
 
