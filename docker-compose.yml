@@ -1,0 +1,42 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb:1.8
+    environment:
+      - "INFLUXDB_DB=trickster"
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb:/var/lib/influxdb
+
+  trickster:
+    image: tricksterio/trickster:1.1.2
+    ports:
+      - "8080:8080"
+    environment:
+      - "ENVIRONMENT=docker-compose"
+    volumes:
+      - ./tests/files/trickster/trickster.conf:/etc/trickster/trickster.conf
+    depends_on:
+      - influxdb
+
+  grafana:
+    image: grafana/grafana:7.1.5
+    user: nobody
+    ports:
+      - 3000:3000
+    volumes:
+      - ./tests/files/grafana/dashboards:/var/lib/grafana/dashboards
+      - ./tests/files/grafana/provisioning:/etc/grafana/provisioning/datasources
+    depends_on:
+      - influxdb
+
+  telegraf:
+    image: telegraf:latest
+    volumes:
+      - ./tests/files/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf
+    depends_on:
+      - influxdb
+
+volumes:
+  influxdb:
