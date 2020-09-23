@@ -10,7 +10,7 @@ services:
       - influxdb:/var/lib/influxdb
 
   trickster:
-    image: tricksterio/trickster:1.1.2
+    image: tricksterio/trickster:1.1.3
     ports:
       - "8080:8080"
     environment:

@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 1,
-  "iteration": 1600202840196,
+  "iteration": 1600875486383,
   "links": [],
   "panels": [
     {
@@ -79,6 +78,7 @@
               "type": "fill"
             }
           ],
+          "hide": true,
           "measurement": "cpu",
           "orderByTime": "ASC",
           "policy": "default",
@@ -674,7 +674,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "Trickster",
           "value": "Trickster"
         },
@@ -714,5 +714,5 @@
   "timezone": "",
   "title": "Internal",
   "uid": "tpSLo5dGz",
-  "version": 4
+  "version": 1
 }
